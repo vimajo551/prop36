@@ -10,7 +10,6 @@ class Question {
     this.option2 = createElement('h4');
     this.option3 = createElement('h4');
     this.option4 = createElement('h4');
-    this.message = createElement("h2")
   }
 
   hide(){
@@ -18,14 +17,13 @@ class Question {
     this.input1.hide();
     this.button.hide();
     this.input2.hide();
-    this.message.hide();
   }
 
   display(){
     this.title.html("Meu Questionário");
     this.title.position(350, 0);
 
-    this.question.html("Pergunta:- O que é que está no meio do começo, no começo do meio, e no final do fim? " );
+    this.question.html("Pergunta: - O que é que está no meio do começo, no começo do meio, e no final do fim? " );
     this.question.position(150, 80);
     this.option1.html("1: A letra E " );
     this.option1.position(150, 100);
@@ -41,11 +39,16 @@ class Question {
     this.button.position(290, 300);
 
     this.button.mousePressed(()=>{
-      
-      this.message.html("Obrigado, Sua Resposta Foi Enviada");
-      this.message.position(350, 350);
-
-
+      this.title.hide();
+      this.input1.hide();
+      this.input2.hide();
+      this.button.hide();
+      contestant.name = this.input1.value();
+      contestant.answer = this.input2.value();
+      contestantCount+=1;
+      contestant.index = contestantCount;
+      contestant.update();
+      contestant.updateCount(contestantCount);
     });
   }
 }
